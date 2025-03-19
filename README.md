@@ -25,4 +25,14 @@ alert("data-type of division is a : " + typeof(5/2) + "( not float), while of a 
 // y = x++; => x value will assign first to y before x is incremented.
 // y += 1 => y will be incremented by 1 and then again assigned to y.
 
+//To print something in developer-console => console.log("myVar is :" + myVar)
 
+//We can use some Math functions like Math.floor(), Math.ceil(), Math.round(),Math.PI etc. 
+
+//function-declaration don't have semi-colon in end
+function add (a,b){
+    return a + b;
+}
+
+// function-calling have a semi-colon in end
+add(2,3);
