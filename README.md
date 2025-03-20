@@ -30,6 +30,21 @@ alert("data-type of division is a : " + typeof(5/2) + "( not float), while of a 
 //We can use some Math functions like Math.floor(), Math.ceil(), Math.round(),Math.PI etc. 
 
 //function-declaration don't have semi-colon in end
+
+// Math.random() generates a ranumber number between 0 (inclusive) and 1 (not inclusive)
+// Random Dice => Math.floor(Math.random() * 6) + 1;
+
+// ===, !==, &&, AND, ||, OR
+//"==" : checks for only value while "===" checks for value and data-type both.
+
+// No semicolon ; at end of if {}
+if ( x === y ){
+	console.log(x + "is equal to " + y);
+	} else {
+		console.log(x + "is not equal to " + y);
+	}
+	
+// Good Program for If-Nesting is Checcking Leap-Year.
 function add (a,b){
     return a + b;
 }
