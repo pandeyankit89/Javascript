@@ -30,6 +30,8 @@ alert("data-type of division is a : " + typeof(5/2) + "( not float), while of a 
 //We can use some Math functions like Math.floor(), Math.ceil(), Math.round(),Math.PI etc. 
 
 //function-declaration don't have semi-colon in end
+// function-calling have a semi-colon in end
+add(2,3);
 
 // Math.random() generates a ranumber number between 0 (inclusive) and 1 (not inclusive)
 // Random Dice => Math.floor(Math.random() * 6) + 1;
@@ -49,5 +51,4 @@ function add (a,b){
     return a + b;
 }
 
-// function-calling have a semi-colon in end
-add(2,3);
+
