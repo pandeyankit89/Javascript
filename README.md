@@ -51,5 +51,44 @@ if ( x === y ){
 	
 // Good Program for If-Nesting is Checcking Leap-Year.
 
+// if-else if-else: Good Example is FizzBuzz (3,5,15) code OR Fibonnaci sequence-
+		if(count % 3 === 0 && count % 5 === 0){
+			console.log("FizzBuzz");
+		}
+		else if(count % 3 === 0){
+			console.log("Fizz");
+		}
+		else if(count % 5 === 0){
+			console.log("Buzz");
+		}
+		else{
+			console.log(count);
+		}
 
+// Javascript Array => 
+	var myArray = ["AA","BB","CC","DD"];
+	
+// To access a specific value => 
+	myArray[0];
+
+// To check if array has a spefic value => 
+	myArray.includes("AA")
+
+// To add a value in array as last item => myArray.push("EE");
+// To remove last value in array => myArray.pop;
+
+
+// While Loop :
+		var i = 1;
+		while (i < 5){
+			console.log(i);
+			i++;
+		}
+
+//For Loop: (Note : the semi-colon inside paranthesis (;;) :
+		for(var i=0; i<5; i++){
+			console.log(i);
+		}
+
+// Note : Use "while", if checking the "state" and use "for", if trying to "iterate".
 
