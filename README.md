@@ -92,3 +92,37 @@ if ( x === y ){
 
 // Note : Use "while", if checking the "state" and use "for", if trying to "iterate".
 
+// What is DOM ? 
+DOM (Document Object Model) in JavaScript is a tree-like representation of an HTML document that allows scripts to dynamically access, modify, and manipulate elements, attributes, and content.
+
+// How to access DOM => document
+
+//How to access first child of a DOM => document.firstElementChild
+//How to access first child of a DOM => document.lastElementChild
+
+//How to access first child of the first child of a  DOM => document.firstElementChild.firstElementChild
+
+//How to access first elemet of a tag in DOM => document.querySelector("h1")
+//How to access all elemets (s =plural) of an tag in DOM => document.getElementsByTagName("h1")   => Note : Returns a List, hence can not set.
+//How to access elemet (without s = singular) of an tag in DOM => document.getElementById("id1")
+
+//How to change style of an element using JS => 
+		document.getElementById("id1").style.color = "red";
+		document.getElementById("id1").style.backgroundColor = "red";
+		document.getElementById("id1").style.textAlign = "center";
+		
+	Note : CSS style names and JS style name are bit different. CSS is having a hyphen while JS are in CamelCase.
+			CSS						JavaScript
+			font-size			fontSize
+			text-align			textAlign
+			background-color 	backgroundColor
+	
+
+//Best-Practice :
+	HTML 		= Structure 
+	CSS 		= Style
+	JavaScript = Behaviour
+
+	it is always good to put all style in CSS. So, instead of changing style from JS, we should add the element in a pre-defined class and these class related style should be configured in CSS.
+		To add an element in class 	=>  document.getElementById("id1").classList.add("new-class");
+		To check					=>	document.getElementsByClassName("new-class")
