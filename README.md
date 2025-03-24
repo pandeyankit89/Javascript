@@ -1,143 +1,171 @@
-# Javascript
+## Javascript
 
-// How to Declare a Varibale :
-	var CamelCaseVariable123WhichCanOnlyHaveTwoSpecialCharacters$and_;
+```javascript
+// How to Declare a Variable:
+var CamelCaseVariable123WhichCanOnlyHaveTwoSpecialCharacters$and_;
+```
 
-//How to take input from User using => prompt();
-	CamelCaseVariable123WhichCanOnlyHaveTwoSpecialCharacters$and_ = prompt("What is your name ?");
+### How to Take Input from User
+```javascript
+CamelCaseVariable123WhichCanOnlyHaveTwoSpecialCharacters$and_ = prompt("What is your name ?");
+```
 
-//How to show screen-popup output using => alert();
-	alert("your's name is "+ CamelCaseVariable123WhichCanOnlyHaveTwoSpecialCharacters$and_ );
+### How to Show a Screen Popup Output
+```javascript
+alert("Your name is " + CamelCaseVariable123WhichCanOnlyHaveTwoSpecialCharacters$and_ );
+```
 
-//data type of a variable => 
-	typeof(myVar);
+### Data Type of a Variable
+```javascript
+typeof(myVar);
+```
 
-//length of a string => 
-	myVar.length;
+### String Operations
+- **Length of a string:** `myVar.length`
+- **Substring of a string:** `myVar.slice(0,2);` (From 0th position up to, but not including, the 2nd position)
+- **Change string to Upper Case:** `myVar.toUpperCase();`
+- **Change string to Lower Case:** `myVar.toLowerCase();`
 
-//substring of a string => 
-	myVar.slice(0,2); => From 0th Position to upto, but including 2nd Position.
+### Mathematical Operations
+```javascript
+alert("Data type of division is: " + typeof(5/2) + " (not float), while modulo is: " + typeof(4%2));
+```
 
-//change sting to Upper Case =>
-	myVar.toUpperCase();
+### Increment & Assignment Operations
+- `y = x++;` → x value is assigned first to y before x is incremented.
+- `y += 1;` → y will be incremented by 1 and then reassigned to y.
 
-//change sting to Lower Case => 
-	myVar.toLowerCase();
+### Printing to Developer Console
+```javascript
+console.log("myVar is: " + myVar);
+```
 
-// Division "/" gives Output as "number" (not float) and Modulo "%" also gives "number"
-	alert("data-type of division is a : " + typeof(5/2) + "( not float), while of a Modulo is : " + typeof(4%2) )
+### Math Functions
+- `Math.floor()`
+- `Math.ceil()`
+- `Math.round()`
+- `Math.PI`
 
-// y = x++; => x value will assign first to y before x is incremented.
-// y += 1 => y will be incremented by 1 and then again assigned to y.
+### Function Declaration & Calling
+```javascript
+// Function declaration (no semicolon at end)
+function add(a, b) {
+    return a + b;
+}
 
-//To print something in developer-console => 
-	console.log("myVar is :" + myVar)
+// Function calling (semicolon at end)
+add(2,3);
+```
 
-//We can use some Math functions like Math.floor(), Math.ceil(), Math.round(),Math.PI etc. 
+### Random Number Generation
+```javascript
+// Math.random() generates a random number between 0 (inclusive) and 1 (not inclusive)
+Math.random();
 
-//function-declaration don't have semi-colon in end
-	function add (a,b){
-    		return a + b;
-	}
-// function-calling have a semi-colon in end
-	add(2,3);
+// Random Dice:
+Math.floor(Math.random() * 6) + 1;
+```
 
-// Math.random() generates a ranumber number between 0 (inclusive) and 1 (not inclusive)
+### Comparison Operators
+- `===`, `!==`, `&&` (AND), `||` (OR)
+- `==` checks for only **value**
+- `===` checks for both **value** and **data type**
 
-// Random Dice =>
-	Math.floor(Math.random() * 6) + 1;
+### Conditional Statements
+```javascript
+if (x === y) {
+    console.log(x + " is equal to " + y);
+} else {
+    console.log(x + " is not equal to " + y);
+}
+```
 
-// ===, !==, &&, AND, ||, OR
-//"==" : checks for only value while "===" checks for value and data-type both.
+### **Good Example of If-Nesting**: Checking Leap Year
 
-// No semicolon ; at end of if {}
-	if ( x === y ){
-		console.log(x + "is equal to " + y);
-		} else {
-			console.log(x + "is not equal to " + y);
-		}
-	
-// Good Program for If-Nesting is Checcking Leap-Year.
+### **FizzBuzz Example**
+```javascript
+if (count % 3 === 0 && count % 5 === 0) {
+    console.log("FizzBuzz");
+} else if (count % 3 === 0) {
+    console.log("Fizz");
+} else if (count % 5 === 0) {
+    console.log("Buzz");
+} else {
+    console.log(count);
+}
+```
 
-// if-else if-else: Good Example is FizzBuzz (3,5,15) code OR Fibonnaci sequence-
-		if(count % 3 === 0 && count % 5 === 0){
-			console.log("FizzBuzz");
-		}
-		else if(count % 3 === 0){
-			console.log("Fizz");
-		}
-		else if(count % 5 === 0){
-			console.log("Buzz");
-		}
-		else{
-			console.log(count);
-		}
+## **JavaScript Arrays**
+```javascript
+var myArray = ["AA", "BB", "CC", "DD"];
+```
 
-// Javascript Array => 
-	var myArray = ["AA","BB","CC","DD"];
-	
-// To access a specific value => 
-	myArray[0];
+- **Accessing a specific value:** `myArray[0];`
+- **Checking if an array has a specific value:** `myArray.includes("AA")`
+- **Adding a value as the last item:** `myArray.push("EE");`
+- **Removing the last value:** `myArray.pop();`
 
-// To check if array has a spefic value => 
-	myArray.includes("AA")
+## **Loops in JavaScript**
 
-// To add a value in array as last item => 
-	myArray.push("EE");
-// To remove last value in array => myArray.pop;
+### While Loop
+```javascript
+var i = 1;
+while (i < 5) {
+    console.log(i);
+    i++;
+}
+```
 
+### For Loop
+```javascript
+for(var i = 0; i < 5; i++) {
+    console.log(i);
+}
+```
+**Note:** Use `while` if checking the state, and `for` if iterating.
 
-// While Loop :
-	var i = 1;
-	while (i < 5){
-		console.log(i);
-		i++;
-	}
+## **DOM (Document Object Model)**
+The DOM is a tree-like representation of an HTML document that allows scripts to dynamically access, modify, and manipulate elements, attributes, and content.
 
-//For Loop: (Note : the semi-colon inside paranthesis (;;) :
-	for(var i=0; i<5; i++){
-		console.log(i);
-	}
+### **Accessing DOM Elements**
+```javascript
+document.firstElementChild;
+document.lastElementChild;
+document.firstElementChild.firstElementChild;
+document.querySelector("h1");
+document.getElementsByTagName("h1");
+document.getElementById("id1");
+```
 
-// Note : Use "while", if checking the "state" and use "for", if trying to "iterate".
+### **Changing Style of an Element using JavaScript**
+```javascript
+document.getElementById("id1").style.color = "red";
+document.getElementById("id1").style.backgroundColor = "red";
+document.getElementById("id1").style.textAlign = "center";
+```
+**Note:** CSS style names and JavaScript style names differ:
 
-// What is DOM ? 
-DOM (Document Object Model) in JavaScript is a tree-like representation of an HTML document that allows scripts to dynamically access, modify, and manipulate elements, attributes, and content.
+| **CSS** | **JavaScript** |
+|---------|---------------|
+| font-size | fontSize |
+| text-align | textAlign |
+| background-color | backgroundColor |
 
-// How to access DOM => document
+## **Best Practices**
 
-//How to access first child of a DOM => 
-	document.firstElementChild
-//How to access first child of a DOM => 
-	document.lastElementChild
+- **HTML** → Structure
+- **CSS** → Style
+- **JavaScript** → Behavior
 
-//How to access first child of the first child of a  DOM => 
-	document.firstElementChild.firstElementChild
+It is recommended to define styles in CSS rather than changing them via JavaScript. Instead of modifying styles directly, add predefined CSS classes dynamically.
 
-//How to access first elemet of a tag in DOM => 
-	document.querySelector("h1")
-//How to access all elemets (s =plural) of an tag in DOM ( Note : Returns a List, hence can not set)=> 
-	document.getElementsByTagName("h1")
-//How to access elemet (without s = singular) of an tag in DOM => 
-	document.getElementById("id1")
+### **Adding a Class Dynamically**
+```javascript
+document.getElementById("id1").classList.add("new-class");
+```
 
-//How to change style of an element using JS => 
-		document.getElementById("id1").style.color = "red";
-		document.getElementById("id1").style.backgroundColor = "red";
-		document.getElementById("id1").style.textAlign = "center";
-		
-	Note : CSS style names and JS style name are bit different. CSS is having a hyphen while JS are in CamelCase.
-			CSS						JavaScript
-			font-size			fontSize
-			text-align			textAlign
-			background-color 	backgroundColor
-	
+### **Checking if an Element Has a Class**
+```javascript
+document.getElementsByClassName("new-class");
+```
 
-//Best-Practice :
-	HTML 		= Structure 
-	CSS 		= Style
-	JavaScript = Behaviour
-
-	it is always good to put all style in CSS. So, instead of changing style from JS, we should add the element in a pre-defined class and these class related style should be configured in CSS.
-		To add an element in class 	=>  document.getElementById("id1").classList.add("new-class");
-		To check					=>	document.getElementsByClassName("new-class")
