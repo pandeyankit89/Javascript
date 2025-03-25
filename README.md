@@ -170,15 +170,10 @@ document.getElementsByClassName("new-class");
 ```
 ---
 ### **getAttribute("attributeName")**
-If there is an anchor element as below -
-```html
-	<a id="myLink" href="https://example.com" target="_blank">Click me</a>
-```
+If there is an anchor element as ```<a id="myLink" href="https://example.com" target="_blank">Click me</a>```
 ```javscript
 console.log(document.getElementById("myLink").getAttribute("href"));  //Output = https://example.com
 ```
-
-
 ```javscript
 console.log(document.getElementById("myLink").getAttribute("target")); //Output =  _blank
 ```
@@ -191,7 +186,7 @@ document.getElementById("myLink").setAttribute("href", "https://google.com");
 *getAttribute*
 - Works only for __HTML__ attributes, not the content inside an element.
 - If the attribute does not exist, it returns __null__.
-- Example : For "<p id="myPara" class="info">Hello, <b>World!</b></p>"
+- Example : For ```<p id="myPara" class="info">Hello, <b>World!</b></p>```
 ```javscript
 	console.log(document.getElementById("myPara").getAttribute("class")); // Output: "info"
 ```
@@ -204,7 +199,7 @@ document.getElementById("myLink").setAttribute("href", "https://google.com");
 
 ### **How to Use querySelectorAll() with element and class**
 - Select All Elements by Tag Name :
-    ```javscript
+```javscript
     let paragraphs = document.querySelectorAll("p");
 ```
 - Select All Elements by Class Name (if class name is "container"):
