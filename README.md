@@ -168,4 +168,79 @@ document.getElementById("id1").classList.add("new-class");
 ```javascript
 document.getElementsByClassName("new-class");
 ```
+---
+### **getAttribute("attributeName")**
+If there is an anchor element as below -
+```html
+	<a id="myLink" href="https://example.com" target="_blank">Click me</a>
+```
+```javscript
+console.log(document.getElementById("myLink").getAttribute("href"));  //Output = https://example.com
+```
 
+
+```javscript
+console.log(document.getElementById("myLink").getAttribute("target")); //Output =  _blank
+```
+### **setAttribute("attributeName", "new_value")**
+```javscript
+document.getElementById("myLink").setAttribute("href", "https://google.com");
+```
+
+### **Diffrence in getAttribute and innerHTML**
+*getAttribute*
+- Works only for __HTML__ attributes, not the content inside an element.
+- If the attribute does not exist, it returns __null__.
+- Example : For "<p id="myPara" class="info">Hello, <b>World!</b></p>"
+```javscript
+	console.log(document.getElementById("myPara").getAttribute("class")); // Output: "info"
+```
+*innerHTML*
+- Used to get or set the HTML content inside an element.
+- Returns everything inside the opening and closing tag, including HTML elements
+```javscript
+	console.log(document.getElementById("myPara").innerHTML); // Output: "Hello, <b>World!</b>"
+```
+
+### **How to Use querySelectorAll() with element and class**
+- Select All Elements by Tag Name :
+    ```javscript
+    let paragraphs = document.querySelectorAll("p");
+```
+- Select All Elements by Class Name (if class name is "container"):
+```javscript
+    let paragraphs = document.querySelectorAll(".container");
+```
+- Select Elements by Tag Name Within a Specific Class:
+```javscript
+  let paragraphs = document.querySelectorAll(".container p");
+```
+- Select Elements by Multiple Classes:
+```javscript
+    let paragraphs = document.querySelectorAll(".container1 .container2");
+```
+- Select Elements by ID and Class Combination:
+```javscript
+    let paragraphs = document.querySelectorAll("#app .card");
+```	
+---
+### **Anonymous function**
+- An anonymous function is a function without a name. 
+- It is often assigned to a variable, passed as an argument, or used as an immediate function expression.
+```javscript
+let greet = function() {
+    console.log("Hello, World!");
+};
+
+greet(); // Output: Hello, World!
+```
+ 
+### **Event Listeners in Javascript**
+- Event Listener which will trigger when a button will be clicked :
+```javscript
+     // Add click event listener
+    button.addEventListener("click", function() {
+        alert("Button clicked!");
+    });
+```
+---
