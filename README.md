@@ -1,8 +1,19 @@
 ## Javascript
 
+### Why we don't use ```var``` anymore and difference between ```let``` and ```const``` ?
+
+| Feature | Meaning | `var` (Avoid) | `let` (Use for variables) | `const` (Use for constants) |
+|---------|---------|--------------|--------------------|------------------|
+| **Scope** | Where the variable is accessible  | Function-scoped ( exists outside of {} also) | Block-scoped ✅  ( exists only inside of {})| Block-scoped ✅  ( exists only inside of {}) |
+| **Redeclaration** | Can we define the same variable name again? | ✅ Allowed (causes bugs) | ❌ Not allowed | ❌ Not allowed |
+| **Reassignment** | Can we change the value after defining it? | ✅ Allowed | ✅ Allowed | ❌ Not allowed |
+| **Hoisting** | Does JavaScript move the declaration to the top? | ✅ Hoisted with `undefined` | ✅ Hoisted (but error if accessed before assignment) | ✅ Hoisted (but error if accessed before assignment) |
+
+---
+
 ```javascript
 // How to Declare a Variable:
-var CamelCaseVariable123WhichCanOnlyHaveTwoSpecialCharacters$and_;
+let CamelCaseVariable123WhichCanOnlyHaveTwoSpecialCharacters$and_;
 ```
 
 ### How to Take Input from User
@@ -109,7 +120,7 @@ var myArray = ["AA", "BB", "CC", "DD"];
 
 ### While Loop
 ```javascript
-var i = 1;
+let i = 1;
 while (i < 5) {
     console.log(i);
     i++;
