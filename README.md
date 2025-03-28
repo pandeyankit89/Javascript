@@ -239,3 +239,105 @@ greet(); // Output: Hello, World!
     });
 ```
 ---
+### **Object**
+- An ```object``` is a collection of related ```data (properties)``` and ```functions (methods)```. It helps in organizing data better.
+- ```Properties``` are key-value pairs inside an object.
+	- You can access properties in two ways:
+		- *Dot notation*: ```person.name```
+		- *Bracket notation*: ```person["age"]```
+- A ```method``` is a function inside an object.
+		
+```javascript
+	let object_name = {
+		property_1: "John",
+		property_1: 30,
+		property_3: "New York" ,
+		// Note : method name not having "()" at end.
+		method_name: function() { 
+					return "Hello, my name is " + this.property_1;
+				} 		// Note : No comma (,) in last												
+	
+	};
+	console.log(object_name);  // Outputs: { property_1: 'John', property_2: 30, property_3: 'New York' }
+	console.log(object_name.property_1);   	// John
+	console.log(object_name["property_2"]); // 30
+	console.log(object_name.method_name()); // Outputs: "Hello, my name is John" Note: calling method with "()" at end.
+```
+
+- Adding/Updating Properties:
+```javascript
+	object_name.property_4 = "USA"; 	// Adds a new property
+	object_name.property_2 = 31;        // Updates existing property
+```
+---
+### **this**
+
+- keyword ```this``` refers to the object it belongs to.
+- *Inside an Object*
+
+```javascript
+	let car = {
+		brand: "Toyota",
+		model: "Corolla",
+		showInfo: function() {
+			console.log("Car: " + this.brand + " " + this.model);
+		}
+	};
+	car.showInfo(); // Car: Toyota Corolla
+	// Here, this.brand and this.model refer to car.brand and car.model.
+```
+- ```this``` in Global Scope
+```javascript
+	console.log(this);  
+	// In browser, "this" refers to the `window` object
+```
+- ```this``` in a Function
+```javascript
+	function show() {
+		console.log(this);  
+	}
+	show();
+	// In a normal function, "this" refers to the global object (window in browsers).	
+```
+- ```this``` in an Event Listener
+```javascript
+	let button = {
+		text: "Click Me",
+		click: function() {
+			console.log("Button Text: " + this.text);
+		}
+	};
+	button.click();  // Output: Button Text: Click Me
+	// Here, this.text refers to button.text.
+```
+---
+### **constructor**
+- A ```constructor``` is a special function used to create multiple objects with the same structure and properties.
+- Instead of manually creating objects, We can use a ```constructor function``` to create multiple objects dynamically.
+- Starts with a capital letter by convention, like ```function MyConstructor()```
+- Uses ```this``` to assign properties.
+- Uses ```new``` to create objects.
+```javascript
+	function Person(name, age) {  //Name starts with a capital letter by convention. Person, not person.
+		this.name = name;
+		this.age = age;
+		this.greet = function() {
+			console.log("Hello, my name is " + this.name);
+		};
+	}
+	
+	// Creating objects using the constructor
+	let person1 = new Person("John", 30);
+	let person2 = new Person("Alice", 25);
+	
+	console.log(person1.name);  // Output: John
+	console.log(person2.age);   // Output: 25
+	
+	person1.greet();  // Output: Hello, my name is John
+	person2.greet();  // Output: Hello, my name is Alice
+```
+- Instead of defining functions inside the constructor (which creates a new function for every object), we use ```prototype```.
+- Why to use ```prototype``` ?
+	- *Without prototype:* Every object gets its own copy of the function.
+	- *With prototype:* The function is shared among all objects, saving memory.
+ ---
