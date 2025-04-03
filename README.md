@@ -351,4 +351,43 @@ greet(); // Output: Hello, World!
 - Why to use ```prototype``` ?
 	- *Without prototype:* Every object gets its own copy of the function.
 	- *With prototype:* The function is shared among all objects, saving memory.
- ---
+---
+## 1. Higher-Order Function
+A **higher-order function** is a function that **takes another function as an argument or returns a function**.  
+
+
+```javascript
+function greet(name, callback) {
+    console.log("Hello, " + name);
+    callback(); // Calling the callback function
+}
+
+function sayGoodbye() {
+    console.log("Goodbye!");
+}
+
+// Passing sayGoodbye as a callback to greet
+greet("Alice", sayGoodbye);
+
+## 2. ```callback``` Function
+A **callback function** is a function that is **passed as an argument to another function and executed later**.  
+```javascript
+function showMessage() {
+    console.log("This message appears after 2 seconds!");
+}
+
+setTimeout(showMessage, 2000); // Passing showMessage as a callback
+```
+When you press a key, a callback function is triggered.
+
+###Example: Detecting keypress and executing a callback
+```javascript
+document.addEventListener("keypress", function(event) {
+    console.log("Key pressed: " + event.key);
+});
+```
+- ```document.addEventListener("keypress", function(event) {...})``` registers an event listener.
+- When a key is pressed, the anonymous function (callback) executes.
+- ```event.key``` gives the key that was pressed.
+---
+
