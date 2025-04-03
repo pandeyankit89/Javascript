@@ -352,7 +352,7 @@ greet(); // Output: Hello, World!
 	- *Without prototype:* Every object gets its own copy of the function.
 	- *With prototype:* The function is shared among all objects, saving memory.
 ---
-## 1. Higher-Order Function
+### 1. Higher-Order Function
 A **higher-order function** is a function that **takes another function as an argument or returns a function**.  
 
 
@@ -368,8 +368,8 @@ function sayGoodbye() {
 
 // Passing sayGoodbye as a callback to greet
 greet("Alice", sayGoodbye);
-
-## 2. ```callback``` Function
+```
+### 2. ```callback``` Function
 A **callback function** is a function that is **passed as an argument to another function and executed later**.  
 ```javascript
 function showMessage() {
