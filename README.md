@@ -443,6 +443,6 @@ document.getElementById("stopBtn").disabled = false;
 	document.getElementById("startBtn").disabled = false;
 	document.getElementById("stopBtn").disabled = true;
 ```
-### Complete script is here => [HTML Page](myAudioRecorder.html)
+### Complete script is here => [myAudioRecorder.html](myAudioRecorder.html)
 ![myAudioRecorder Page](myAudioRecorder.png)
 ---
