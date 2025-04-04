@@ -395,8 +395,8 @@ document.addEventListener("keypress", function(event) {
 - Browser has an API feature called MediaRecorder which helps to record audio and/or video from a user's microphone or webcam.
 - We can use this ```MediaRecorder``` API feature using JS to create recorder applications.
 - There will 2 thhings :
-		- Media stream – usually from ```navigator.mediaDevices.getUserMedia()``` (microphone or webcam).
-		- MediaRecorder – to record that stream. 
+	- Media stream – usually from ```navigator.mediaDevices.getUserMedia()``` (microphone or webcam).
+	- MediaRecorder – to record that stream. 
 - How to Start recording ```mediaRecorder.start();```. While recording :
 
 (1) First Check User Permission, once start-button is clicked :
