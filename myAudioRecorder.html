@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Audio Recorder</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 2rem;
+      text-align: center;
+    }
+    button {
+      font-size: 1rem;
+      margin: 1rem;
+      padding: 0.5rem 1rem;
+    }
+    audio {
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Audio Recorder using MediaRecorder API</h1>
+
+  <button id="startBtn">Start Recording</button>
+  <button id="stopBtn" disabled>Stop Recording</button>
+  <br />
+  <audio id="audioPlayback" controls></audio>
+
+  <script>
+    let mediaRecorder;
+    let audioChunks = [];
+
+    document.getElementById("startBtn").onclick = async () => {
+      try {
+        // (1) Get user media (audio)
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+
+        // (2) Disable start, enable stop
+        document.getElementById("startBtn").disabled = true;
+        document.getElementById("stopBtn").disabled = false;
+
+        // (3) Create MediaRecorder and start recording
+        mediaRecorder = new MediaRecorder(stream);
+        mediaRecorder.start();
+
+        // (4) Store audio chunks
+        audioChunks = [];
+        mediaRecorder.ondataavailable = (event) => {
+          audioChunks.push(event.data);
+        };
+
+        // (5) On stop, create blob and set audio src
+        mediaRecorder.onstop = () => {
+          const audioBlob = new Blob(audioChunks, { type: 'audio/webm' });
+          const audioUrl = URL.createObjectURL(audioBlob);
+          document.getElementById("audioPlayback").src = audioUrl;
+        };
+
+      } catch (err) {
+        console.error("Error accessing microphone:", err);
+        alert("Microphone access is required to use this feature.");
+      }
+    };
+
+    document.getElementById("stopBtn").onclick = () => {
+      // (1) Stop recording
+      if (mediaRecorder && mediaRecorder.state !== "inactive") {
+        mediaRecorder.stop();
+      }
+
+      // (2) Enable start, disable stop
+      document.getElementById("startBtn").disabled = false;
+      document.getElementById("stopBtn").disabled = true;
+    };
+  </script>
+
+</body>
+</html>
