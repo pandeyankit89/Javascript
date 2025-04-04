@@ -13,17 +13,17 @@
 
 ```javascript
 // How to Declare a Variable:
-let CamelCaseVariable123WhichCanOnlyHaveTwoSpecialCharacters$and_;
+let camelCaseVariable123WhichCanOnlyHaveTwoSpecialCharacters$and_;
 ```
 
 ### How to Take Input from User
 ```javascript
-CamelCaseVariable123WhichCanOnlyHaveTwoSpecialCharacters$and_ = prompt("What is your name ?");
+camelCaseVariable123WhichCanOnlyHaveTwoSpecialCharacters$and_ = prompt("What is your name ?");
 ```
 
 ### How to Show a Screen Popup Output
 ```javascript
-alert("Your name is " + CamelCaseVariable123WhichCanOnlyHaveTwoSpecialCharacters$and_ );
+alert("Your name is " + camelCaseVariable123WhichCanOnlyHaveTwoSpecialCharacters$and_ );
 ```
 
 ### Data Type of a Variable
