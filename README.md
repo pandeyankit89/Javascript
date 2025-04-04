@@ -390,4 +390,59 @@ document.addEventListener("keypress", function(event) {
 - When a key is pressed, the anonymous function (callback) executes.
 - ```event.key``` gives the key that was pressed.
 ---
+### MediaRecorder API
 
+- Browser has an API feature called MediaRecorder which helps to record audio and/or video from a user's microphone or webcam.
+- We can use this ```MediaRecorder``` API feature using JS to create recorder applications.
+- There will 2 thhings :
+		- Media stream – usually from ```navigator.mediaDevices.getUserMedia()``` (microphone or webcam).
+		- MediaRecorder – to record that stream. 
+- How to Start recording ```mediaRecorder.start();```. While recording :
+
+(1) First Check User Permission, once start-button is clicked :
+```javascript
+document.getElementById("start").onclick = async () => {
+const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+//Screen: using navigator.mediaDevices.getDisplayMedia() (for screen recording)
+```
+(2) Disable the start-button and Enable the Stop-button :
+```javascript
+document.getElementById("startBtn").disabled = true;
+document.getElementById("stopBtn").disabled = false;
+```
+(3) Once permission received, start the recording -
+```javascript
+	mediaRecorder = new MediaRecorder(stream);
+	mediaRecorder.start();
+```
+(4) We store these recording streams in chunks using ```mediaRecorder.ondataavailable`` eventin an array.
+```javascript
+	audioChunks = [];
+	mediaRecorder.ondataavailable = (event) => {
+		audioChunks.push(event.data);
+	};
+```
+(5) When Use clicked "stop-recording button". While Stoppoing, convert the chunks into Blob, which can use it like a source which we can play using ```audio``` tag.
+```javascript
+	mediaRecorder.onstop = () => {
+		const audioBlob = new Blob(audioChunks, { type: 'audio/webm' });
+		const audioUrl = URL.createObjectURL(audioBlob);
+		document.getElementById("audioPlayback").src = audioUrl;
+	};
+```
+- How to Stop recording ```mediaRecorder.stop();```. While stopping :
+  
+(1) Stop the recording once stop-button is clicked :
+```javascript
+	document.getElementById("stop").onclick = () => {
+		mediaRecorder.stop();
+	};
+```
+(2) Enable the start-button and Disable the Stop-button :
+```javascript
+	document.getElementById("startBtn").disabled = false;
+	document.getElementById("stopBtn").disabled = true;
+```
+### Complete script is here => [HTML Page](myAudioRecorder.html)
+![myAudioRecorder Page](myAudioRecorder.png)
+---
