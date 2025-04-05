@@ -533,4 +533,26 @@ Our Browser has a API feature called Web-Speech API which provides two main func
 
 - Complete script is here => [SpeechRecognition_Speech_to_Text.html](SpeechRecognition_Speech_to_Text.html)
 ![SpeechRecognition_Speech_to_Text Page](SpeechRecognition_Speech_to_Text.png)
+
+### ```grammars``` in SpeechRecognition :
+- In speech recognition, a grammar is like a guide or rulebook that tells the recognizer what kind of words or phrases to listen for.
+	- Improve accuracy.
+	- Limit recognition to specific phrases or expected words.
+	- Avoid interpreting background noise or unexpected input.
+	- Use only when, expecting a limited set of words or  building voice-controlled menus (like “Start”, “Stop”, “Help”).
+	- Don't use Grammar if want free speech transcription or input is unpredictable.
+- grammars are created using ```SpeechGrammarList```.
+```javascript
+//#JSGF V1.0 		: This is the format version (Java Speech Grammar Format)
+//grammar colors;	: We’re naming this grammar “colors”
+const grammar =	"#JSGF V1.0; grammar colors; public <color> = aqua | azure | beige | bisque | black | blue | brown | chocolate | coral | crimson | cyan | fuchsia | ghostwhite | gold | goldenrod | gray | green | indigo | ivory | khaki | lavender | lime | linen | magenta | maroon | moccasin | navy | olive | orange | orchid | peru | pink | plum | purple | red | salmon | sienna | silver | snow | tan | teal | thistle | tomato | turquoise | violet | white | yellow ;";
+const recognition = new SpeechRecognition();
+const speechRecognitionList  = window.SpeechGrammarList || window.webkitSpeechGrammarList;
+speechRecognitionList.addFromString(grammar, 1);
+recognition.grammars = speechRecognitionList;  // Setting the Grammar
+recognition.continuous = false;
+recognition.lang = "en-US";
+recognition.interimResults = false;
+recognition.maxAlternatives = 1;
+```
 ---
