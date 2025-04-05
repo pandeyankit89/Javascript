@@ -496,5 +496,5 @@ Our Browser has a API feature called Web-Speech API which provides two main func
 ```
 - (4)  Tells the browser to start speaking using ```window.speechSynthesis.speak(speech)```
 - Complete script is here => [SpeechSynthesis_Text_to_Speech.html](SpeechSynthesis_Text_to_Speech.html)
-	- ![SpeechSynthesis_Text_to_Speech Page](SpeechSynthesis_Text_to_Speech.png)
+	- ![SpeechSynthesis_Text_to_Speech Page](SpeechSynthesis_Text_to_Speech.PNG)
 ---
