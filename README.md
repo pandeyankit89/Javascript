@@ -443,6 +443,58 @@ document.getElementById("stopBtn").disabled = false;
 	document.getElementById("startBtn").disabled = false;
 	document.getElementById("stopBtn").disabled = true;
 ```
-### Complete script is here => [myAudioRecorder.html](myAudioRecorder.html)
+- Complete script is here => [myAudioRecorder.html](myAudioRecorder.html)
 ![myAudioRecorder Page](myAudioRecorder.png)
+---
+### Web-Speech API
+Our Browser has a API feature called Web-Speech API which provides two main functionalities:
+- (1) Speech Synthesis (Text-to-Speech) : This is handled by the ```SpeechSynthesis``` interface of the Web Speech API.
+- (2) Speech Recognition (Voice-to-Text) : 
+
+### Text-to-Speech Website:
+- (1) We need a text area, where user will provide his text.
+- (2) ```SpeechSynthesisUtterance(text)``` will	creates a _speech object_ with the text to be spoken.
+```javascript
+	const text = document.getElementById('text').value;
+	const speech = new SpeechSynthesisUtterance(text);  //Create a speech object
+```
+- (3) Before we ask browser to speak for us, we have to set 4-5 things :
+	- (i) Set language
+```javascript
+	speech.lang = 'en-US'; // You can change to 'hi-IN', 'fr-FR', etc.
+```
+-
+	- (ii)  Need to adjust _pitch_, _rate_, _volume_
+```javascript
+	speech.pitch = 1;     // 0 (low) to 2 (high)
+    speech.rate = 1;      // 0.1 (slow) to 10 (fast)
+    speech.volume = 1;    // 0 (mute) to 1 (max)
+```
+-
+	- (iii)  Can select type of voice in which browser will speak :
+```javascript
+	// List of Voices supported by Browser
+	const voices = window.speechSynthesis.getVoices();
+	console.log("Total number of Voices supported = "+voices.length)
+	for (let i = 0; i < voices.length; i++) {
+		console.log(voices[i].name);
+	}
+	
+	//OR
+	
+	const voices = window.speechSynthesis.getVoices();
+	console.log("Available Voices:");
+	voices.forEach(v => console.log(v.name));
+```
+```javascript
+	//Optional: Load all Voices and Set anyone of the voice
+    	const voices = window.speechSynthesis.getVoices();
+
+    	// Set a specific voice
+    	const myVoice = voices.find(v => v.name === "Microsoft Zira - English (United States)");
+    	speech.voice = myVoice;
+```
+- (4)  Tells the browser to start speaking using ```window.speechSynthesis.speak(speech)```
+- Complete script is here => [SpeechSynthesis_Text_to_Speech.html](SpeechSynthesis_Text_to_Speech.html)
+	- ![SpeechSynthesis_Text_to_Speech Page](SpeechSynthesis_Text_to_Speech.png)
 ---
