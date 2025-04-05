@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Text to Speech Demo</title>
+  <style>
+    body { font-family: Arial; text-align: center; padding: 20px; background: #f0f0f0; }
+    textarea { width: 50%; height: 50px; margin-bottom: 10px; }
+    button { padding: 10px 20px; font-size: 16px; }
+  </style>
+</head>
+<body>
+  <h2>SpeechSynthesis : Text-to-Speech Demo</h2>
+  <textarea id="text" placeholder="Type something..."></textarea><br>
+  <button onclick="speak()">🔊 Speak</button>
+
+  <script>
+    function speak() {
+        const text = document.getElementById('text').value;
+
+        //Create a speech object
+        const speech = new SpeechSynthesisUtterance(text);
+
+        //Optional: Set language 
+        speech.lang = 'en-US'; // You can change to 'hi-IN', 'fr-FR', etc.
+
+        //Optional: Adjust pitch, rate, volume
+        speech.pitch = 1;     // 0 (low) to 2 (high)
+        speech.rate = 1;      // 0.1 (slow) to 10 (fast)
+      speech.volume = 1;    // 0 (mute) to 1 (max)
+
+       //Optional: Load all VOices and Set anyone of the voice
+        const voices = window.speechSynthesis.getVoices();
+
+        // Set a specific voice
+        const myVoice = voices.find(v => v.name === "Microsoft Zira - English (United States)");
+        speech.voice = myVoice;
+       /*
+            Microsoft David - English (United States)
+            Microsoft Mark - English (United States)
+            Microsoft Zira - English (United States)
+            Rudolph
+       */
+
+      //Speak the text
+      window.speechSynthesis.speak(speech);
+    }
+  </script>
+</body>
+</html>
