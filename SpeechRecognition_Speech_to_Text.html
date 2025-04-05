@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Speech to Text</title>
+		<style>
+		body { font-family: Arial; text-align: center; padding: 20px; background: #f0f0f0; }
+		textarea { width: 50%; height: 50px; margin-bottom: 10px; background: #fef96f;}
+		button { padding: 10px 20px; font-size: 16px; }
+    p {text-align: left; margin-left: 25%;}
+	</style>
+	</head>
+	<body>
+		<h2>SpeechRecognition : Speech to Text Demo</h2>
+		<button id="start-btn">🎙️ Press to Speak</button>
+    <p>You said :</p>
+		<textarea id="output"></textarea>
+	
+		<script>
+			// Check if the browser supports speech recognition
+			const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+		
+			if (!SpeechRecognition) {
+			alert("Your browser doesn't support Speech Recognition. Try Chrome.");
+			} else {
+				const recognition = new SpeechRecognition();
+		
+				// Optional: set language
+				recognition.lang = 'en-US';
+		
+				// When the button is clicked
+				document.getElementById('start-btn').onclick = function() {
+					recognition.start();  // Start listening!
+					//console.log("Start Listening");
+				};
+		
+				// When you start speaking
+				recognition.onresult = function(event) {
+				const transcript = event.results[0][0].transcript;
+				document.getElementById('output').innerText = transcript;
+				};
+		
+			// If there's an error (e.g., no mic)
+				recognition.onerror = function(event) {
+				console.error("Error occurred: ", event.error);
+				};
+		
+			
+			}
+		</script>
+	</body>
+</html>
