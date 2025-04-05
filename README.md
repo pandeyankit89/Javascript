@@ -451,7 +451,7 @@ Our Browser has a API feature called Web-Speech API which provides two main func
 - (1) Speech Synthesis (Text-to-Speech) : This is handled by the ```SpeechSynthesis``` interface of the Web Speech API.
 - (2) Speech Recognition (Voice-to-Text) : 
 
-### Text-to-Speech Website:
+### (1) Text-to-Speech Website:
 - (1) We need a text area, where user will provide his text.
 - (2) ```SpeechSynthesisUtterance(text)``` will	creates a _speech object_ with the text to be spoken.
 ```javascript
@@ -497,4 +497,40 @@ Our Browser has a API feature called Web-Speech API which provides two main func
 - (4)  Tells the browser to start speaking using ```window.speechSynthesis.speak(speech)```
 - Complete script is here => [SpeechSynthesis_Text_to_Speech.html](SpeechSynthesis_Text_to_Speech.html)
 	- ![SpeechSynthesis_Text_to_Speech Page](SpeechSynthesis_Text_to_Speech.PNG)
+---
+### (2) Speech-to-Text Website:
+- (1) Check if the browser supports speech recognition.
+```javascript
+	const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+```
+- (2) Creates a new instance of ```SpeechRecognition``` that will handle speech recognition.
+```javascript
+	const recognition = new SpeechRecognition();
+```
+- (3)  Set language
+```javascript
+	recognition.lang = 'en-US';
+```
+- (4) start listening  using ```recognition.start();``` when button is clicked -
+```javascript
+		document.getElementById('start-btn').onclick = function() {
+            recognition.start();  // Start listening!
+        };
+```
+- (5) ```recognition.onresult = function(event) { ... }``` runs when the browser hears your voice and converts it to text. The text is stored in ```event.results[0][0].transcript```
+```javascript
+		recognition.onresult = function(event) {
+          const transcript = event.results[0][0].transcript;
+          document.getElementById('output').innerText = "You said,\""+transcript +"\"";
+        };
+```
+- (4)  ```recognition.onerror = function(event) { ... }``` handles any errors (like mic permissions, unsupported browser, etc.)
+```javascript
+		recognition.onerror = function(event) {
+          console.error("Error occurred: ", event.error);
+        };
+```
+
+- Complete script is here => [SpeechRecognition_Speech_to_Text.html](SpeechRecognition_Speech_to_Text.html)
+![SpeechRecognition_Speech_to_Text Page](SpeechRecognition_Speech_to_Text.png)
 ---
